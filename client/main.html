@@ -1,23 +1,52 @@
 <head>
+
   <title>PlubUn</title>
 </head>
 
 <body>
   <nav>PlubUn{{> loginButtons}}</nav>
   <h1></h1>
-
+  <table>
+      <tr>
+        <th>Firstname</th>
+        <th>Lastname</th> 
+        <th>Age</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+      </tr>
+    </table>
   {{> hello}}
   {{> info}}
 </body>
 
+<div class="sidebar col-xs-3">
+    <div class="well">sidebar</div>
+    <template name="searchBox">
+        {{> EasySearch.Input index=playersIndex }}
+    
+        <ul>
+            {{#EasySearch.Each index=playersIndex }}
+                <li>Name of the player: {{name}}</li>
+            {{/EasySearch.Each}}
+        </ul>
+    </template>
+</div>
+
 <template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
 </template>
 
 <template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-  </ul>
 </template>
